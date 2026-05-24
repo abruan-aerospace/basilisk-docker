@@ -3,6 +3,7 @@
 [![Docker Build](https://github.com/theinfinitelabs/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/theinfinitelabs/basilisk-docker/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://www.repostatus.org/#active)
+
 [![arXiv](https://img.shields.io/badge/arXiv-2605.12443-b31b1b.svg)](https://arxiv.org/abs/2605.12443)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20132421.svg)](https://doi.org/10.5281/zenodo.20132421)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15008785.svg)](https://doi.org/10.5281/zenodo.15008785)
