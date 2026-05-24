@@ -1,41 +1,18 @@
 # basilisk-docker
 
+[![Docker Build](https://github.com/theinfinitelabs/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/theinfinitelabs/basilisk-docker/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://www.repostatus.org/#active)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.12443-b31b1b.svg)](https://arxiv.org/abs/2605.12443)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20132421.svg)](https://doi.org/10.5281/zenodo.20132421)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15008785.svg)](https://doi.org/10.5281/zenodo.15008785)
+
 Docker-based containerization workflow for the 
 [Basilisk](https://hanspeterschaub.info/basilisk) 
-astrodynamics simulation framework.
+astrodynamics simulation framework, encapsulating the complete build environment within a portable Docker container to enable reproducible GN&C simulations across heterogeneous development systems.
 
-## Overview
+![Vizard](docs/images/viz-earth-orbit.png)
 
-This repository provides a containerized deployment 
-environment for Basilisk GN&C simulations, including 
-Docker configuration files and example simulation scripts. 
-The workflow encapsulates the complete Basilisk build 
-environment within a portable Docker container, eliminating 
-dependency conflicts and enabling consistent simulation 
-execution across heterogeneous development systems.
-
-This repository accompanies the paper:
-
-> Gupta, A. "Basilisk and Docker for Reproducible GN&C Simulation: A Workflow Reference." *arXiv*, 2026. 
-> [DOI: XXXX](https://arxiv.org/abs/2605.XXXX)
-
-The original workshop presentation is available on Zenodo:  
-[https://doi.org/10.5281/zenodo.15008785](https://doi.org/10.5281/zenodo.15008785)
-
-## Repository Structure
-```
-basilisk-docker/
-├── docker/
-│   └── Dockerfile
-├── examples/
-├── .env
-├── build-basilisk.sh
-├── CITATION.cff
-├── docker-compose.yml
-├── LICENSE
-├── README.md
-└── RELEASE_NOTES.md
-```
 
 ## Requirements
 
@@ -63,7 +40,7 @@ docker exec -it basilisk_gnc bash
 ```
 
 ## Notes
-
+- The Dockerfile is located at `docker/Dockerfile`
 - Compatible with Ubuntu 22.04 and Python 3.10
 - First-time build takes approximately 15-20 minutes
 - Subsequent rebuilds use Docker layer caching 
@@ -75,21 +52,12 @@ docker exec -it basilisk_gnc bash
   directory, which can be opened in Vizard for 3D visualization.
 
 ## Development History
-
-The Docker configuration in this repository originated 
-from simulation environment work begun in 2021. The 
-workflow was formalized and presented as a workshop at 
-the 46th Rocky Mountain AAS GN&C Conference in February 
-2024, and is documented in the companion paper listed above.
-
-## License
-
-MIT License. See [LICENSE](LICENSE) for details.
+The Docker configuration in this repository originated from simulation environment work begun in 2021. The workflow was formalized and presented as a workshop at the 46th Rocky Mountain AAS GN&C Conference in February 2024 (Zenodo: 10.5281/zenodo.15008785), and is documented in the companion paper listed above.
 
 ## Citation
+If you use this software infrastucture or workflow in your research, please cite the appropriate reference:
 
-If you use this workflow in your research, please cite:
-
+**Software:**
 ```bibtex
 @software{gupta2026basilisk,
   author       = {Gupta, Anubhav},
@@ -98,6 +66,20 @@ If you use this workflow in your research, please cite:
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.20132421},
   url          = {https://github.com/theinfinitelabs/basilisk-docker}
+}
+```
+
+**Paper:**
+```bibtex
+@article{gupta2026basiliskpaper,
+  author       = {Gupta, Anubhav},
+  title        = {Basilisk and Docker for Reproducible {GN\&C} Simulation: A Workflow Reference},
+  journal      = {arXiv preprint},
+  year         = {2026},
+  eprint       = {2605.12443},
+  archivePrefix = {arXiv},
+  primaryClass = {eess.SY},
+  doi          = {10.48550/arXiv.2605.12443}
 }
 ```
 
