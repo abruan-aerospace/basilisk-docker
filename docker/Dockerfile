@@ -13,12 +13,12 @@
 FROM ubuntu:22.04
 
 ARG BASILISK_COMMIT=87cb4116e09694ddf6587f61a7f4196d2e720c43
-LABEL basilisk_commit=${BASILISK_COMMIT}
+LABEL basilisk.commit=${BASILISK_COMMIT}
 
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=America/Los_Angeles
 
-RUN apt update && \
+RUN apt-get update && \
     apt-get install -y \
     git git-lfs build-essential \
     python3-setuptools python3-dev \
