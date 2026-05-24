@@ -19,7 +19,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TZ=America/Los_Angeles
 
 RUN apt-get update && \
-    apt-get install -y \
+    apt-get install -y --no-install-recommends \
     git git-lfs build-essential \
     python3-setuptools python3-dev \
     python3-tk python3-pip python3-venv \
