@@ -1,5 +1,12 @@
 # RELEASE NOTES
 
+### Version 1.1.0 (Unreleased)
+- Added CI workflow with Dockerfile linting (hadolint) and shell script validation (shellcheck)
+- Added badges: CI status, license, project status, arXiv, Zenodo
+- Added Vizard orbit screenshot to README
+- Updated Dockerfile: replaced apt with apt-get, added --no-install-recommends, fixed label key convention
+- Updated README: restructured for clarity, separated software and paper citations, added conference workshop reference in Development History, removed repository structure tree
+
 ### Version 1.0.0 (May 11, 2026)
 - Initial release of the Basilisk-Docker infrastructure.
 - Initial release accompanying the paper: "Basilisk and Docker for Reproducible GN&C Simulation: A Workflow Reference"
