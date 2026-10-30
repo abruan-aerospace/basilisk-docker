@@ -17,7 +17,7 @@ authors:
     email: anubhav.gupta@colorado.edu
     affiliation: "University of Colorado Boulder; In Orbit Aerospace Inc."
 
-repository-code: "https://github.com/theinfinitelabs/basilisk-docker"
+repository-code: "https://github.com/abruan-aerospace/basilisk-docker"
 license: MIT
 
 version: "1.0.0"
