@@ -23,7 +23,7 @@ astrodynamics simulation framework, encapsulating the complete build environment
 ## Quick Start
 
 ```bash
-git clone https://github.com/theinfinitelabs/basilisk-docker.git
+git clone https://github.com/abruan-aerospace/basilisk-docker.git
 cd basilisk-docker
 ./build-basilisk.sh
 ```
