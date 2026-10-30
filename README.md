@@ -56,17 +56,17 @@ docker exec -it basilisk_gnc bash
 The Docker configuration in this repository originated from simulation environment work begun in 2021. The workflow was formalized and presented as a workshop at the 46th Rocky Mountain AAS GN&C Conference in February 2024 (Zenodo: 10.5281/zenodo.15008785), and is documented in the companion paper listed above.
 
 ## Citation
-If you use this software infrastucture or workflow in your research, please cite the appropriate reference:
+If you use this software infrastructure or workflow in your research, please cite the appropriate reference:
 
 **Software:**
 ```bibtex
 @software{gupta2026basilisk,
   author       = {Gupta, Anubhav},
-  title        = {Basilisk and Docker for Reproducible GN\&C Simulation},
+  title        = {Basilisk and Docker for Reproducible {GN\&C} Simulation},
   year         = {2026},
   publisher    = {Zenodo},
   doi          = {10.5281/zenodo.20132421},
-  url          = {https://github.com/theinfinitelabs/basilisk-docker}
+  url          = {https://github.com/abruan-aerospace/basilisk-docker}
 }
 ```
 
