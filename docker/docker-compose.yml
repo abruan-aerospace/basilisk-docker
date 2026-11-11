@@ -11,12 +11,16 @@
 # License:      MIT
 # ---------------------------------------------------------------------
 
+# Fixed project name; otherwise Compose names it after this folder ("docker").
+name: Basilisk_GNC
+
 services:
   bsk:
     container_name: basilisk_gnc
     image: bsk_img
     build:
-      context: ./docker
+      context: .
+      dockerfile: docker/Dockerfile
     working_dir: /app/workspace
     env_file:
       - .env
