@@ -15,6 +15,11 @@ FROM ubuntu:22.04
 ARG BASILISK_COMMIT=87cb4116e09694ddf6587f61a7f4196d2e720c43
 LABEL basilisk.commit=${BASILISK_COMMIT}
 
+# DEPS=pinned  installs the exact versions in requirements.txt (default).
+# DEPS=ranges  installs Basilisk's own version ranges at BASILISK_COMMIT.
+ARG DEPS=pinned
+LABEL basilisk.deps=${DEPS}
+
 ENV DEBIAN_FRONTEND=noninteractive \
     TZ=America/Los_Angeles
 
@@ -34,7 +39,15 @@ RUN git clone https://github.com/AVSLab/basilisk.git && \
     cd basilisk && \
     git checkout ${BASILISK_COMMIT} && \
     git lfs pull && \
-    python3 -m pip install --no-cache-dir -r /tmp/requirements.txt && \
+    if [ "$DEPS" = "pinned" ]; then \
+        python3 -m pip install --no-cache-dir -r /tmp/requirements.txt; \
+    elif [ "$DEPS" = "ranges" ]; then \
+        python3 -m pip install --no-cache-dir --upgrade pip && \
+        python3 -m pip install --no-cache-dir \
+            -r requirements.txt -r requirements_dev.txt ipykernel; \
+    else \
+        echo "DEPS must be pinned or ranges (got: $DEPS)" >&2; exit 1; \
+    fi && \
     python3 conanfile.py \
         --buildProject False \
         --vizInterface True \
