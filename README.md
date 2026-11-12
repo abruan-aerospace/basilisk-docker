@@ -40,6 +40,23 @@ To open a terminal inside the running container:
 docker exec -it basilisk_gnc bash
 ```
 
+## Python Dependencies
+
+By default the image installs the exact package versions listed in
+`requirements.txt`, so every build gets the same Python environment.
+
+To use Basilisk's own version ranges for the pinned `BASILISK_COMMIT` instead:
+
+```bash
+docker compose build --build-arg DEPS=ranges
+```
+
+Outside Docker, `pip install -r requirements.txt` recreates the same
+environment in a virtual environment (tested with Python 3.10). For other
+Python versions, use the requirements files in the Basilisk repository at
+the matching commit. Basilisk itself must still be built from source.
+
+
 ## Notes
 - The Dockerfile is located at `docker/Dockerfile`
 - Compatible with Ubuntu 22.04 and Python 3.10

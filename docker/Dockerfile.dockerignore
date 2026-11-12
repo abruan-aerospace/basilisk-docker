@@ -1,0 +1,3 @@
+# Build context is the repo root; send only what the image needs.
+*
+!requirements.txt
