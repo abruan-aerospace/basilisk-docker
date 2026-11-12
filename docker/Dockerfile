@@ -35,14 +35,17 @@ WORKDIR /app
 
 COPY requirements.txt /tmp/requirements.txt
 
-RUN git clone https://github.com/AVSLab/basilisk.git && \
-    cd basilisk && \
-    git checkout ${BASILISK_COMMIT} && \
-    git lfs pull && \
-    if [ "$DEPS" = "pinned" ]; then \
+# Retrieve the exact Basilisk source revision
+RUN git clone https://github.com/AVSLab/basilisk.git /app/basilisk && \
+    git -C /app/basilisk checkout ${BASILISK_COMMIT} && \
+    git -C /app/basilisk lfs pull
+
+WORKDIR /app/basilisk
+
+# Install Python dependencies and build Basilisk
+RUN if [ "$DEPS" = "pinned" ]; then \
         python3 -m pip install --no-cache-dir -r /tmp/requirements.txt; \
     elif [ "$DEPS" = "ranges" ]; then \
-        python3 -m pip install --no-cache-dir --upgrade pip && \
         python3 -m pip install --no-cache-dir \
             -r requirements.txt -r requirements_dev.txt ipykernel; \
     else \
