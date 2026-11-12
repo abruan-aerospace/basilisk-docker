@@ -25,5 +25,5 @@ jobs:
           sudo apt-get install -y shellcheck
           shellcheck ./docker/build-basilisk.sh
 
-      - name: Validate docker-compose
+      - name: Validate docker/docker-compose
         run: docker compose config
