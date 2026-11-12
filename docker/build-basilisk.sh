@@ -13,8 +13,14 @@
 
 set -e
 
+# Resolve repository root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
 echo "Building Basilisk Docker container..."
-docker compose up -d --build
+
+docker compose \
+    -f "${SCRIPT_DIR}/docker-compose.yml" \
+    up -d --build
 
 echo "Container built and running."
 echo "To open a terminal inside the container:"

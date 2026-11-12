@@ -19,7 +19,7 @@ services:
     container_name: basilisk_gnc
     image: bsk_img
     build:
-      context: .
+      context: ..
       dockerfile: docker/Dockerfile
     working_dir: /app/workspace
     environment:
@@ -28,7 +28,7 @@ services:
       PYTHONUNBUFFERED: "1"
     volumes:
       - type: bind
-        source: .                     # repo root
+        source: ..                     # repo root
         target: /app/workspace
     tty: true
     stdin_open: true
