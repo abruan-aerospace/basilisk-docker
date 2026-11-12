@@ -22,8 +22,10 @@ services:
       context: .
       dockerfile: docker/Dockerfile
     working_dir: /app/workspace
-    env_file:
-      - .env
+    environment:
+      PYTHONPATH: /app/basilisk/dist3
+      PYTHONDONTWRITEBYTECODE: "1"
+      PYTHONUNBUFFERED: "1"
     volumes:
       - type: bind
         source: .                     # repo root
