@@ -23,7 +23,8 @@ jobs:
       - name: Lint shell scripts
         run: |
           sudo apt-get install -y shellcheck
-          shellcheck build-basilisk.sh
+          shellcheck ./docker/build-basilisk.sh
 
       - name: Validate docker-compose
+        working-directory: docker
         run: docker compose config
