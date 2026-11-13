@@ -25,7 +25,8 @@
 - OCI image labels recording the image version, Basilisk tag, Basilisk
   commit, and dependency mode.
 - CI workflow: Dockerfile linting (hadolint), shell script linting
-  (ShellCheck), and <DESCRIBE_TESTS>.
+  (ShellCheck), Compose validation, and a full image build with a smoke
+  test that runs Basilisk's `scenarioBasicOrbit.py` example.
 - README badges: CI status, release, license, project status, Basilisk
   version, Python version, arXiv, software DOI, and workshop DOI.
 - Vizard visualization of the Earth-orbit scenario in the README.

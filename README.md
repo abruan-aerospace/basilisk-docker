@@ -81,7 +81,7 @@ cd basilisk-docker
 Or, equivalently, with Docker Compose:
 
 ```bash
-docker compose up -d --build
+docker compose -f docker/docker-compose.yml up -d --build
 ```
 
 Open a shell in the running container:
@@ -140,7 +140,9 @@ Every push and pull request runs:
 
 - **Dockerfile lint:** [hadolint](https://github.com/hadolint/hadolint)
 - **Shell script lint:** [ShellCheck](https://www.shellcheck.net/)
-- **Scenario tests:** successful execution of basic scripts (minimal example)
+- **Compose validation:** `docker compose config`
+- **Build and smoke test:** builds the full image on `linux/amd64` and runs
+  Basilisk's `scenarioBasicOrbit.py` example
 
 See [`.github/workflows/ci.yml`](.github/workflows/ci.yml) for details.
 
