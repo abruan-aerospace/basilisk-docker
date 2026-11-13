@@ -10,11 +10,11 @@ on:
 jobs:
   lint:
     name: Lint and Configuration Checks
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
 
       - name: Lint Dockerfile
         uses: hadolint/hadolint-action@v3.1.0
@@ -36,17 +36,16 @@ jobs:
 
   docker-smoke-test:
     name: Docker Build and Smoke Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v5
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
+        uses: docker/setup-buildx-action@v4.4.1
       - name: Build Docker image
-        uses: docker/build-push-action@v6
+        uses: docker/build-push-action@v7.4.0
         with:
           context: .
           file: docker/Dockerfile
@@ -55,8 +54,6 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            # BASILISK_TAG=v2.12.2
-            # BASILISK_COMMIT=dad700e
             DEPS=pinned
 
       - name: Run Basilisk standard example
