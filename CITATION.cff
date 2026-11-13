@@ -14,8 +14,8 @@ abstract: >
 authors:
   - family-names: Gupta
     given-names: Anubhav
-    email: anubhav.gupta@colorado.edu
-    affiliation: "University of Colorado Boulder; In Orbit Aerospace Inc."
+    email: anubhav.gupta@abruanspace.com
+    affiliation: "Abruan Aerospace; University of Colorado Boulder"
 
 repository-code: "https://github.com/abruan-aerospace/basilisk-docker"
 license: MIT

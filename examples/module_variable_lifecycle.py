@@ -1,16 +1,12 @@
 #%%
-# ./examples/module_variable_lifecycle.py
 #
 # Demonstrates Basilisk module execution lifecycle: variable state
 # before initialization, after InitializeSimulation(), and after
 # SingleStepProcesses(). Corresponds to Section 4.3 of the paper.
 #
-# Author:       Anubhav Gupta
-# Affiliation:  University of Colorado Boulder
-#               In Orbit Aerospace Inc.
-# Organization: Infinite Labs
-# License:      MIT
-# ---------------------------------------------------------------------
+# Author: Anubhav Gupta
+# Organization: Abruan Aerospace
+# License: MIT
 
 from Basilisk.moduleTemplates import cModuleTemplate
 from Basilisk.utilities import SimulationBaseClass, macros
