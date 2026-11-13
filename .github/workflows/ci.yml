@@ -65,3 +65,10 @@ jobs:
             -e MPLBACKEND=Agg \
             basilisk-smoke-test:latest \
             python /app/basilisk/examples/scenarioBasicOrbit.py
+
+      - name: Run Basilisk smoke test 2
+        run: |
+          docker run --rm \
+            -e MPLBACKEND=Agg \
+            basilisk-smoke-test:latest \
+            python /app/workspace/examples/scenario_spacecraft.py
