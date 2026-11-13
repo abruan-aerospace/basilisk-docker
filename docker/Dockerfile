@@ -32,7 +32,6 @@ RUN apt-get update && \
         build-essential=12.12ubuntu2.26.04.2 \
         python3=3.14.3-0ubuntu2 \
         python3-dev=3.14.3-0ubuntu2 \
-        python3-pip=26.3+dfsg-1ubuntu2 \
         python3-venv=3.14.3-0ubuntu2 \
         python3-tk=3.14.3-0ubuntu2 \
         libgtk2.0-0t64 \
