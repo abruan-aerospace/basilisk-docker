@@ -16,6 +16,7 @@ authors:
     given-names: Anubhav
     email: anubhav.gupta@abruanspace.com
     affiliation: "Abruan Aerospace; University of Colorado Boulder"
+    orcid: "https://orcid.org/0000-0002-3216-868X"
 
 repository-code: "https://github.com/abruan-aerospace/basilisk-docker"
 license: MIT
@@ -35,20 +36,18 @@ keywords:
   - orbital mechanics
   - attitude control
 
-references:
-  - type: article
-    title: "Basilisk and Docker for Reproducible GN&C Simulation: A Workflow Reference"
-    authors:
-      - family-names: Gupta
-        given-names: Anubhav
-    year: 2026
-    journal: "arXiv preprint"
-    doi: "10.48550/arXiv.2605.12443"
-    url: "https://arxiv.org/abs/2605.12443"
-    identifiers:
-      - type: other
-        value: "arXiv:2605.12443"
+preferred-citation:
+  type: article
+  title: "Basilisk and Docker for Reproducible GN&C Simulation: A Workflow Reference"
+  authors:
+    - family-names: Gupta
+      given-names: Anubhav
+  year: 2026
+  journal: "arXiv preprint"
+  doi: "10.48550/arXiv.2605.12443"
+  url: "https://arxiv.org/abs/2605.12443"
 
+references:
   - type: conference-paper
     title: "Basilisk and Docker for Streamlined GN&C Simulation"
     authors:

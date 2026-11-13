@@ -155,20 +155,7 @@ The Docker configuration originated in simulation environment work begun in 2021
 
 ## Citation
 
-If this software or workflow supports your work, please cite the relevant reference.
-
-**Software:**
-
-```bibtex
-@software{gupta2026basilisk,
-  author    = {Gupta, Anubhav},
-  title     = {Basilisk and Docker for Reproducible {GN\&C} Simulation},
-  year      = {2026},
-  publisher = {Zenodo},
-  doi       = {10.5281/zenodo.20132420},
-  url       = {https://github.com/abruan-aerospace/basilisk-docker}
-}
-```
+If you use this software, please cite the paper below. To reference a specific software version, also cite the Zenodo DOI.
 
 **Paper:**
 
@@ -182,6 +169,20 @@ If this software or workflow supports your work, please cite the relevant refere
   archivePrefix = {arXiv},
   primaryClass  = {eess.SY},
   doi           = {10.48550/arXiv.2605.12443}
+}
+```
+
+**Software:**
+
+```bibtex
+@software{gupta2026basilisk,
+  author    = {Gupta, Anubhav},
+  title     = {Basilisk and Docker for Reproducible {GN\&C} Simulation},
+  year      = {2026},
+  version   = {2.0.0},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20132420},
+  url       = {https://github.com/abruan-aerospace/basilisk-docker}
 }
 ```
 
