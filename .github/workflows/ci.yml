@@ -59,14 +59,15 @@ jobs:
             BASILISK_COMMIT=dad700e
             DEPS=pinned
 
-      - name: Run Basilisk smoke test
+      - name: Run Basilisk standard example
         run: |
           docker run --rm \
             -e MPLBACKEND=Agg \
             basilisk-smoke-test:latest \
             python /app/basilisk/examples/scenarioBasicOrbit.py
 
-      - name: Run Basilisk smoke test 2
+      - name: Run custom spacecraft example
+        working-directory: /app/workspace/examples
         run: |
           docker run --rm \
             -e MPLBACKEND=Agg \
