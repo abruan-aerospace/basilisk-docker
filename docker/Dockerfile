@@ -80,12 +80,11 @@ RUN python conanfile.py
 
 # Register Basilisk editable installation
 RUN python -m pip install \
+        --no-cache-dir \
         --no-build-isolation \
         --no-deps \
-        -e .
-
-# Validate installation
-RUN python -m pip check && \
+        -e . && \
+    python -m pip check && \
     python -c "import Basilisk; print('Basilisk import successful')" && \
     python -m pip show bsk
 
