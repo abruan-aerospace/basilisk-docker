@@ -1,15 +1,9 @@
 #!/bin/bash
-# ---------------------------------------------------------------------
-# build-basilisk.sh
-#
 # Convenience script to build and launch the Basilisk container.
 #
-# Usage: ./build-basilisk.sh
-#
-# Author:       Anubhav Gupta
+# Author: Anubhav Gupta
 # Organization: Abruan Aerospace
-# License:      MIT
-# ---------------------------------------------------------------------
+# License: MIT
 
 set -e
 

@@ -1,18 +1,13 @@
 #%%
-# ---------------------------------------------------------------------
-# ./examples/message_connection_recording.py
-#
+# 
 # Demonstrates Basilisk message connection and state recording:
 # subscribeTo() for module-to-module message passing, recorder()
 # for data logging, and NumPy array access via .times().
 # Corresponds to Section 4.4 of the paper.
 #
-# Author:       Anubhav Gupta
-# Affiliation:  University of Colorado Boulder
-#               In Orbit Aerospace Inc.
-# Organization: Infinite Labs
-# License:      MIT
-# ---------------------------------------------------------------------
+# Author: Anubhav Gupta
+# Organization: Abruan Aerospace
+# License: MIT
 
 from Basilisk.moduleTemplates import cModuleTemplate
 from Basilisk.utilities import SimulationBaseClass, macros

@@ -1,16 +1,12 @@
 #%%
-# ./examples/scenario_earth_orbit.py
 #
 # Spacecraft in Earth orbit with Keplerian initial conditions and
 # optional J2 spherical harmonic perturbations via the GGM03S model.
 # Corresponds to Section 5.3 of the paper.
 #
-# Author:       Anubhav Gupta
-# Affiliation:  University of Colorado Boulder
-#               In Orbit Aerospace Inc.
-# Organization: Infinite Labs
-# License:      MIT
-# ---------------------------------------------------------------------
+# Author: Anubhav Gupta
+# Organization: Abruan Aerospace
+# License: MIT
 
 import numpy as np
 

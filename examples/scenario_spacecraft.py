@@ -1,16 +1,12 @@
 #%%
-# ./examples/scenario_spacecraft.py
 #
 # Baseline spacecraft simulation without orbital dynamics.
 # Demonstrates simulation container setup, process/task hierarchy,
 # and Vizard visualization. Corresponds to Section 5.2 of the paper.
 #
-# Author:       Anubhav Gupta
-# Affiliation:  University of Colorado Boulder
-#               In Orbit Aerospace Inc.
-# Organization: Infinite Labs
-# License:      MIT
-# ---------------------------------------------------------------------
+# Author: Anubhav Gupta
+# Organization: Abruan Aerospace
+# License: MIT
 
 from Basilisk.simulation import spacecraft
 from Basilisk.utilities import SimulationBaseClass, macros, vizSupport

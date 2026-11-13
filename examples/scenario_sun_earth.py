@@ -1,16 +1,12 @@
 #%%
-# ./examples/scenario_sun_earth.py
 #
 # Sun-Earth two-body simulation using SPICE ephemerides (DE430).
 # Demonstrates multi-body gravitational setup and EphemerisConverter
 # integration. Corresponds to Section 5.4 of the paper.
 #
-# Author:       Anubhav Gupta
-# Affiliation:  University of Colorado Boulder
-#               In Orbit Aerospace Inc.
-# Organization: Infinite Labs
-# License:      MIT
-# ---------------------------------------------------------------------
+# Author: Anubhav Gupta
+# Organization: Abruan Aerospace
+# License: MIT
 
 import numpy as np
 

@@ -1,14 +1,8 @@
-# ---------------------------------------------------------------------
-# ./docker/Dockerfile
-#
 # Docker image for containerized Basilisk GN&C simulation workflows.
 #
-# Author:       Anubhav Gupta
-# Affiliation:  University of Colorado Boulder
-#               In Orbit Aerospace Inc.
-# Organization: Infinite Labs
-# License:      MIT
-# ---------------------------------------------------------------------
+# Author: Anubhav Gupta
+# Organization: Abruan Aerospace
+# License: MIT
 
 
 ARG UBUNTU_VERSION=26.04
