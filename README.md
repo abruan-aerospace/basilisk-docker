@@ -1,15 +1,16 @@
 # basilisk-docker
 
-[![CI Build](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/theinfinitelabs/basilisk-docker/actions)
+[![CI Build](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml)
+[![GitHub release](https://img.shields.io/github/v/release/abruan-aerospace/basilisk-docker?include_prereleases&sort=semver)](https://github.com/abruan-aerospace/basilisk-docker/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://www.repostatus.org/#active)
 
+[![Basilisk](https://img.shields.io/badge/Basilisk-v2.12.2-orange)](https://github.com/AVSLab/basilisk/releases/tag/v2.12.2)
 [![Python](https://img.shields.io/badge/Python-3.14%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
-[![GitHub release](https://img.shields.io/github/v/release/abruan-aerospace/basilisk-docker?include_prereleases&sort=semver)](https://github.com/abruan-aerospace/basilisk-docker/releases)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2605.12443-b31b1b.svg)](https://arxiv.org/abs/2605.12443)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20132421.svg)](https://doi.org/10.5281/zenodo.20132421)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15008785.svg)](https://doi.org/10.5281/zenodo.15008785)
+[![Software DOI](https://img.shields.io/badge/Software_DOI-10.5281%2Fzenodo.20132420-blue)](https://doi.org/10.5281/zenodo.20132420)
+[![Workshop DOI](https://img.shields.io/badge/Workshop_DOI-10.5281%2Fzenodo.15008785-blue)](https://doi.org/10.5281/zenodo.15008785)
 
 Docker-based containerization workflow for the 
 [Basilisk](https://hanspeterschaub.info/basilisk) 
@@ -55,14 +56,14 @@ docker compose build --build-arg DEPS=ranges
 ```
 
 Outside Docker, `pip install -r requirements.txt` recreates the same
-environment in a virtual environment (tested with Python 3.10). For other
+environment in a virtual environment (tested with Python 3.14). For other
 Python versions, use the requirements files in the Basilisk repository at
 the matching commit. Basilisk itself must still be built from source.
 
 
 ## Notes
 - The Dockerfile is located at `docker/Dockerfile`
-- Compatible with Ubuntu 22.04 and Python 3.10
+- Compatible with Ubuntu 26.04 and Python 3.14
 - First-time build takes approximately 15-20 minutes
 - Subsequent rebuilds use Docker layer caching 
   and are significantly faster
