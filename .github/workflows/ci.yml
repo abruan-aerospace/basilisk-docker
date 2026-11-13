@@ -55,8 +55,8 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            BASILISK_TAG=v2.12.2
-            BASILISK_COMMIT=dad700e
+            # BASILISK_TAG=v2.12.2
+            # BASILISK_COMMIT=dad700e
             DEPS=pinned
 
       - name: Run Basilisk standard example
