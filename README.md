@@ -1,6 +1,6 @@
 # basilisk-docker
 
-[![Docker Build](https://github.com/theinfinitelabs/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/theinfinitelabs/basilisk-docker/actions)
+[![CI Build](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/theinfinitelabs/basilisk-docker/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://www.repostatus.org/#active)
 
