@@ -7,7 +7,7 @@
 # Usage: ./build-basilisk.sh
 #
 # Author:       Anubhav Gupta
-# Organization: Infinite Labs
+# Organization: Abruan Aerospace
 # License:      MIT
 # ---------------------------------------------------------------------
 
