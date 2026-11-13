@@ -1,3 +1,4 @@
+
 name: CI
 
 on:
@@ -8,6 +9,7 @@ on:
 
 jobs:
   lint:
+    name: Lint and Configuration Checks
     runs-on: ubuntu-latest
 
     steps:
@@ -20,11 +22,46 @@ jobs:
           dockerfile: docker/Dockerfile
           failure-threshold: error
 
-      - name: Lint shell scripts
+      - name: Install ShellCheck
         run: |
+          sudo apt-get update
           sudo apt-get install -y shellcheck
-          shellcheck ./docker/build-basilisk.sh
+
+      - name: Lint shell scripts
+        run: shellcheck ./docker/build-basilisk.sh
 
       - name: Validate docker-compose
         working-directory: docker
         run: docker compose config
+
+  docker-smoke-test:
+    name: Docker Build and Smoke Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile
+          tags: basilisk-smoke-test:latest
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            BASILISK_TAG=v2.12.2
+            BASILISK_COMMIT=dad700e
+            DEPS=pinned
+
+      - name: Run Basilisk standard example
+        run: |
+          docker run --rm \
+            -e MPLBACKEND=Agg \
+            basilisk-smoke-test:latest \
+            python /app/basilisk/examples/scenarioBasicOrbit.py
