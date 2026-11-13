@@ -1,4 +1,6 @@
-# basilisk-docker
+# Basilisk Docker
+
+**A reproducible, version-pinned build environment for Basilisk GN&C simulation.**
 
 [![CI Build](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml)
 [![GitHub release](https://img.shields.io/github/v/release/abruan-aerospace/basilisk-docker?include_prereleases&sort=semver)](https://github.com/abruan-aerospace/basilisk-docker/releases)
@@ -12,9 +14,7 @@
 [![Software DOI](https://img.shields.io/badge/Software_DOI-10.5281%2Fzenodo.20132420-blue)](https://doi.org/10.5281/zenodo.20132420)
 [![Workshop DOI](https://img.shields.io/badge/Workshop_DOI-10.5281%2Fzenodo.15008785-blue)](https://doi.org/10.5281/zenodo.15008785)
 
-A containerized, version-pinned build environment for the
-[Basilisk](https://hanspeterschaub.info/basilisk) astrodynamics simulation
-framework. The image captures the complete toolchain (OS, compilers, Python dependencies, and a fixed Basilisk commit), so GN&C simulations run in a consistent, version-controlled environment on any host that runs Docker.
+A containerized, version-pinned build environment for the [Basilisk](https://hanspeterschaub.info/basilisk) astrodynamics simulation framework. The image captures the complete toolchain (OS, compilers, Python dependencies, and a fixed Basilisk commit), so GN&C simulations run in a consistent, version-controlled environment on any host that runs Docker.
 
 <p align="center">
   <img src="docs/images/viz-earth-orbit.png" alt="Vizard visualization of the Earth-orbit scenario" width="720">
@@ -40,8 +40,7 @@ framework. The image captures the complete toolchain (OS, compilers, Python depe
 
 Building Basilisk from source depends on the host: compiler versions, SWIG, CMake, Python ABI, and transitive package versions all affect whether a build succeeds, and occasionally whether simulation output matches. On a team, that drift appears as results that differ from machine to machine and as onboarding that takes days.
 
-This repository removes that variable. Every collaborator, CI runner, and
-reviewer works in the same image, built from the same Basilisk commit with the same pinned dependencies.
+This repository removes that variable. Every collaborator, CI runner, and reviewer works in the same image, built from the same Basilisk commit with the same pinned dependencies.
 
 ## Versions and Reproducibility
 
@@ -90,13 +89,11 @@ Open a shell in the running container:
 docker exec -it basilisk_gnc bash
 ```
 
-The first build compiles Basilisk from source and takes approximately
-15–20 minutes. Subsequent builds reuse cached layers and are much faster.
+The first build compiles Basilisk from source and takes approximately 15–20 minutes. Subsequent builds reuse cached layers and are much faster.
 
 ## Example Scenarios
 
-The included scripts demonstrate core Basilisk workflow concepts. Each one maps
-to a section of the [companion paper](https://arxiv.org/abs/2605.12443).
+The included scripts demonstrate core Basilisk workflow concepts. Each one maps to a section of the [companion paper](https://arxiv.org/abs/2605.12443).
 
 | Script | Demonstrates | Paper |
 |---|---|---|
@@ -131,8 +128,7 @@ docker compose build --build-arg DEPS=ranges
 
 Use this mode to test against newer compatible packages. Results may differ from the pinned environment.
 
-**Outside Docker:** `pip install -r requirements.txt` recreates the
-environment in a virtual environment on Python `3.14`. For other Python versions, use the requirements files from the Basilisk repository at the matching commit. In both cases, Basilisk itself must still be built from source.
+**Outside Docker:** `pip install -r requirements.txt` recreates the environment in a virtual environment on Python `3.14`. For other Python versions, use the requirements files from the Basilisk repository at the matching commit. In both cases, Basilisk itself must still be built from source.
 
 ## Continuous Integration
 
@@ -155,16 +151,11 @@ See [`.github/workflows/ci.yml`](.github/workflows/ci.yml) for details.
 
 ## Development History
 
-The Docker configuration originated in simulation environment work begun in
-2021. The workflow was formalized and presented as a workshop at the
-46th Rocky Mountain AAS GN&C Conference in February 2024
-([10.5281/zenodo.15008785](https://doi.org/10.5281/zenodo.15008785)), and is
-documented in the companion paper.
+The Docker configuration originated in simulation environment work begun in 2021. The workflow was formalized and presented as a workshop at the 46th Rocky Mountain AAS GN&C Conference in February 2024 ([10.5281/zenodo.15008785](https://doi.org/10.5281/zenodo.15008785)), and is documented in the companion paper.
 
 ## Citation
 
-If this software or workflow supports your work, please cite the relevant
-reference.
+If this software or workflow supports your work, please cite the relevant reference.
 
 **Software:**
 
@@ -196,9 +187,7 @@ reference.
 
 ## Acknowledgments
 
-The author thanks Dr. Hanspeter Schaub and the Autonomous Vehicle Systems (AVS)
-Laboratory at the University of Colorado Boulder for developing and maintaining
-Basilisk.
+The author thanks Dr. Hanspeter Schaub and the Autonomous Vehicle Systems (AVS) Laboratory at the University of Colorado Boulder for developing and maintaining Basilisk.
 
 ## License
 
