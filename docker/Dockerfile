@@ -27,25 +27,20 @@ ENV DEBIAN_FRONTEND=noninteractive \
 # System dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        git \
-        git-lfs \
-        build-essential \
-        ca-certificates \
-        cmake \
-        curl \
-        pkg-config \
-        python3 \
-        python3-dev \
-        python3-pip \
-        python3-venv \
-        python3-tk \
+        git=1:2.53.0-1ubuntu1.1 \
+        git-lfs=3.7.1-1 \
+        build-essential=12.12ubuntu2.26.04.2 \
+        python3=3.14.3-0ubuntu2 \
+        python3-dev=3.14.3-0ubuntu2 \
+        python3-pip=26.3+dfsg-1ubuntu2 \
+        python3-venv=3.14.3-0ubuntu2 \
+        python3-tk=3.14.3-0ubuntu2 \
         libgtk2.0-0t64 \
-        libzmq3-dev \
+        libzmq3-dev=4.3.5-1build3 \
     && rm -rf /var/lib/apt/lists/*
-
+  
 # Create isolated Python environment
-RUN python3 -m venv ${VIRTUAL_ENV} && \
-    python -m pip install --upgrade pip
+RUN python3 -m venv ${VIRTUAL_ENV}
 
 WORKDIR /app
 
