@@ -9,12 +9,13 @@ ARG UBUNTU_VERSION=26.04
 FROM ubuntu:${UBUNTU_VERSION}
 
 ARG BASILISK_TAG=v2.12.2
-ARG BASILISK_COMMIT=dad700e
+ARG BASILISK_COMMIT=dad700e8af0c0219c5cf0f46666f792c0e7af8a0
+ARG IMAGE_VERSION=2.0.0
 ARG DEPS=pinned
 
 LABEL org.opencontainers.image.title="Basilisk Docker"
 LABEL org.opencontainers.image.vendor="Abruan Aerospace"
-LABEL org.opencontainers.image.version="${BASILISK_TAG}"
+LABEL org.opencontainers.image.version="${IMAGE_VERSION}"
 LABEL basilisk.tag="${BASILISK_TAG}"
 LABEL basilisk.commit="${BASILISK_COMMIT}"
 LABEL basilisk.deps="${DEPS}"

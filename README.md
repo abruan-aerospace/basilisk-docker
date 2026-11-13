@@ -14,9 +14,7 @@
 
 A containerized, version-pinned build environment for the
 [Basilisk](https://hanspeterschaub.info/basilisk) astrodynamics simulation
-framework. The image captures the complete toolchain (OS, compilers, Python
-dependencies, and a fixed Basilisk commit), so GN&C simulations produce the
-same results on any host that runs Docker.
+framework. The image captures the complete toolchain (OS, compilers, Python dependencies, and a fixed Basilisk commit), so GN&C simulations run in a consistent, version-controlled environment on any host that runs Docker.
 
 <p align="center">
   <img src="docs/images/viz-earth-orbit.png" alt="Vizard visualization of the Earth-orbit scenario" width="720">
@@ -28,7 +26,9 @@ same results on any host that runs Docker.
 - [Versions and Reproducibility](#versions-and-reproducibility)
 - [Requirements](#requirements)
 - [Quick Start](#quick-start)
+- [Example Scenarios](#example-scenarios)
 - [Python Dependencies](#python-dependencies)
+- [Continuous Integration](#continuous-integration)
 - [Operational Notes](#operational-notes)
 - [Development History](#development-history)
 - [Citation](#citation)
@@ -38,15 +38,10 @@ same results on any host that runs Docker.
 
 ## Why This Exists
 
-Building Basilisk from source depends on the host: compiler versions, SWIG,
-CMake, Python ABI, and transitive package versions all affect whether a build
-succeeds, and occasionally whether simulation output matches. On a team, that
-drift appears as results that differ from machine to machine and as onboarding
-that takes days.
+Building Basilisk from source depends on the host: compiler versions, SWIG, CMake, Python ABI, and transitive package versions all affect whether a build succeeds, and occasionally whether simulation output matches. On a team, that drift appears as results that differ from machine to machine and as onboarding that takes days.
 
 This repository removes that variable. Every collaborator, CI runner, and
-reviewer works in the same image, built from the same Basilisk commit with the
-same pinned dependencies.
+reviewer works in the same image, built from the same Basilisk commit with the same pinned dependencies.
 
 ## Versions and Reproducibility
 
@@ -75,90 +70,134 @@ Release history and change details are in [RELEASE_NOTES.md](RELEASE_NOTES.md).
 | [Vizard](https://hanspeterschaub.info/basilisk/Vizard/Vizard.html) | Optional, for 3D playback of scenario output |
 | ~30 GB free disk space | ~13 GB image plus build cache during the first build |
 
-
 ## Quick Start
 
 ```bash
 git clone https://github.com/abruan-aerospace/basilisk-docker.git
 cd basilisk-docker
-./build-basilisk.sh
+./docker/build-basilisk.sh
 ```
 
-Or manually:
+Or, equivalently, with Docker Compose:
 
 ```bash
 docker compose up -d --build
 ```
 
-To open a terminal inside the running container:
+Open a shell in the running container:
 
 ```bash
 docker exec -it basilisk_gnc bash
 ```
 
+The first build compiles Basilisk from source and takes approximately
+15–20 minutes. Subsequent builds reuse cached layers and are much faster.
+
+## Example Scenarios
+
+The included scripts demonstrate core Basilisk workflow concepts. Each one maps
+to a section of the [companion paper](https://arxiv.org/abs/2605.12443).
+
+| Script | Demonstrates | Paper |
+|---|---|---|
+| `module_variable_lifecycle.py` | Module variable initialization, update, and reset behavior | §4.3 |
+| `message_connection_recording.py` | Message connection and data recording | §4.4 |
+| `scenario_spacecraft.py` | Spacecraft dynamics setup | §5.2 |
+| `scenario_earth_orbit.py` | Earth-orbit propagation | §5.3, §5.5 |
+| `scenario_sun_earth.py` | Sun–Earth multi-body environment | §5.4 |
+
+Run a scenario from inside the container:
+
+```bash
+cd examples
+python scenario_earth_orbit.py
+```
+
+Each scenario writes a `.bin` file to its working directory. Open that file in Vizard for 3D visualization.
+
+> Scenarios that use planetary ephemerides need the `de430.bsp` SPICE kernel.
+> It is not distributed with this repository because of its size. Section 3 of
+> the companion paper gives retrieval instructions.
+
 ## Python Dependencies
 
-By default the image installs the exact package versions listed in
-`requirements.txt`, so every build gets the same Python environment.
+By default, the image installs the exact versions in `requirements.txt`, so every build resolves the same Python environment.
 
-To use Basilisk's own version ranges for the pinned `BASILISK_COMMIT` instead:
+To install Basilisk's own version ranges for the pinned commit instead:
 
 ```bash
 docker compose build --build-arg DEPS=ranges
 ```
 
-Outside Docker, `pip install -r requirements.txt` recreates the same
-environment in a virtual environment (tested with Python 3.14). For other
-Python versions, use the requirements files in the Basilisk repository at
-the matching commit. Basilisk itself must still be built from source.
+Use this mode to test against newer compatible packages. Results may differ from the pinned environment.
 
+**Outside Docker:** `pip install -r requirements.txt` recreates the
+environment in a virtual environment on Python `3.14`. For other Python versions, use the requirements files from the Basilisk repository at the matching commit. In both cases, Basilisk itself must still be built from source.
 
-## Notes
-- The Dockerfile is located at `docker/Dockerfile`
-- Compatible with Ubuntu 26.04 and Python 3.14
-- First-time build takes approximately 15-20 minutes
-- Subsequent rebuilds use Docker layer caching 
-  and are significantly faster
-- The `de430.bsp` SPICE ephemeris file is not included 
-  due to size; see Section 3 of the companion paper 
-  for retrieval instructions
-- Running each scenario generates a .bin file in the same
-  directory, which can be opened in Vizard for 3D visualization.
+## Continuous Integration
+
+Every push and pull request runs:
+
+- **Dockerfile lint:** [hadolint](https://github.com/hadolint/hadolint)
+- **Shell script lint:** [ShellCheck](https://www.shellcheck.net/)
+- **Scenario tests:** successful execution of basic scripts (minimal example)
+
+See [`.github/workflows/ci.yml`](.github/workflows/ci.yml) for details.
+
+## Operational Notes
+
+- **Base image:** Ubuntu 26.04 LTS, Python 3.14
+- **Dockerfile:** [`docker/Dockerfile`](docker/Dockerfile)
+- **Container name:** `basilisk_gnc`
+- **Platform:** Builds natively on `linux/amd64` and `linux/arm64` (including Apple Silicon). Vizard runs on the host, not in the container.
 
 ## Development History
-The Docker configuration in this repository originated from simulation environment work begun in 2021. The workflow was formalized and presented as a workshop at the 46th Rocky Mountain AAS GN&C Conference in February 2024 (Zenodo: 10.5281/zenodo.15008785), and is documented in the companion paper listed above.
+
+The Docker configuration originated in simulation environment work begun in
+2021. The workflow was formalized and presented as a workshop at the
+46th Rocky Mountain AAS GN&C Conference in February 2024
+([10.5281/zenodo.15008785](https://doi.org/10.5281/zenodo.15008785)), and is
+documented in the companion paper.
 
 ## Citation
-If you use this software infrastructure or workflow in your research, please cite the appropriate reference:
+
+If this software or workflow supports your work, please cite the relevant
+reference.
 
 **Software:**
+
 ```bibtex
 @software{gupta2026basilisk,
-  author       = {Gupta, Anubhav},
-  title        = {Basilisk and Docker for Reproducible {GN\&C} Simulation},
-  year         = {2026},
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.20132421},
-  url          = {https://github.com/abruan-aerospace/basilisk-docker}
+  author    = {Gupta, Anubhav},
+  title     = {Basilisk and Docker for Reproducible {GN\&C} Simulation},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.20132420},
+  url       = {https://github.com/abruan-aerospace/basilisk-docker}
 }
 ```
 
 **Paper:**
+
 ```bibtex
 @article{gupta2026basiliskpaper,
-  author       = {Gupta, Anubhav},
-  title        = {Basilisk and Docker for Reproducible {GN\&C} Simulation: A Workflow Reference},
-  journal      = {arXiv preprint},
-  year         = {2026},
-  eprint       = {2605.12443},
+  author        = {Gupta, Anubhav},
+  title         = {Basilisk and Docker for Reproducible {GN\&C} Simulation: A Workflow Reference},
+  journal       = {arXiv preprint},
+  year          = {2026},
+  eprint        = {2605.12443},
   archivePrefix = {arXiv},
-  primaryClass = {eess.SY},
-  doi          = {10.48550/arXiv.2605.12443}
+  primaryClass  = {eess.SY},
+  doi           = {10.48550/arXiv.2605.12443}
 }
 ```
 
 ## Acknowledgments
 
-The author thanks Dr. Hanspeter Schaub and the AVS 
-Laboratory at the University of Colorado Boulder for 
-developing Basilisk.
+The author thanks Dr. Hanspeter Schaub and the Autonomous Vehicle Systems (AVS)
+Laboratory at the University of Colorado Boulder for developing and maintaining
+Basilisk.
+
+## License
+
+Released under the [MIT License](LICENSE).
