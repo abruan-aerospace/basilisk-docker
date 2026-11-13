@@ -3,7 +3,7 @@
 ### Version 2.0.0 (Nov 17, 2026)
 
 **Breaking changes**
-- Basilisk updated from commit `87cb4116` to release
+- Basilisk updated from release v2.10.2 (`87cb4116`) to release
   [v2.12.2](https://github.com/AVSLab/basilisk/releases/tag/v2.12.2)
   (`dad700e8af0c0219c5cf0f46666f792c0e7af8a0`).
 - Base image updated from Ubuntu 22.04 to Ubuntu 26.04 LTS.
@@ -40,19 +40,30 @@
   scenarios to paper sections, dependency and CI documentation,
   separate software and paper citations, and conference workshop
   reference in Development History.
-- Scenario scripts are unchanged from v1.0.0.
+- Scenario scripts: header comments updated; simulation code is
+  unchanged from v1.0.0.
 
 **Removed**
 - Repository structure tree from the README.
 
 
 ### Version 1.0.0 (May 11, 2026)
-- Initial release of the Basilisk-Docker infrastructure.
-- Initial release accompanying the paper: "Basilisk and Docker for Reproducible GN&C Simulation: A Workflow Reference"
-- Docker environment pinned to Basilisk commit 87cb4116
-- Scripts included:
-    - module_variable_lifecycle.py — Section 4.3
-    - message_connection_recording.py — Section 4.4
-    - scenario_spacecraft.py — Section 5.2
-    - scenario_earth_orbit.py — Section 5.3 + 5.5
-    - scenario_sun_earth.py — Section 5.4
+
+Initial release, accompanying the paper
+[*Basilisk and Docker for Reproducible GN&C Simulation: A Workflow Reference*](https://arxiv.org/abs/2605.12443).
+This is the reference environment for reproducing the paper's results
+(DOI [10.5281/zenodo.20132421](https://doi.org/10.5281/zenodo.20132421)).
+
+**Environment**
+- Basilisk v2.10.2 (`87cb4116e09694ddf6587f61a7f4196d2e720c43`)
+- Ubuntu 22.04, Python 3.10
+
+**Scripts**
+
+| Script | Paper |
+|---|---|
+| `module_variable_lifecycle.py` | §4.3 |
+| `message_connection_recording.py` | §4.4 |
+| `scenario_spacecraft.py` | §5.2 |
+| `scenario_earth_orbit.py` | §5.3, §5.5 |
+| `scenario_sun_earth.py` | §5.4 |

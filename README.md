@@ -8,11 +8,11 @@
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://www.repostatus.org/#active)
 
 [![Basilisk](https://img.shields.io/badge/Basilisk-v2.12.2-orange)](https://github.com/AVSLab/basilisk/releases/tag/v2.12.2)
-[![Python](https://img.shields.io/badge/Python-3.14%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2605.12443-b31b1b.svg)](https://arxiv.org/abs/2605.12443)
-[![Software DOI](https://img.shields.io/badge/Software_DOI-10.5281%2Fzenodo.20132420-blue)](https://doi.org/10.5281/zenodo.20132420)
-[![Workshop DOI](https://img.shields.io/badge/Workshop_DOI-10.5281%2Fzenodo.15008785-blue)](https://doi.org/10.5281/zenodo.15008785)
+[![Software](https://img.shields.io/badge/Software-10.5281%2Fzenodo.20132420-blue)](https://doi.org/10.5281/zenodo.20132420)
+[![Workshop](https://img.shields.io/badge/Workshop-10.5281%2Fzenodo.15008785-blue)](https://doi.org/10.5281/zenodo.15008785)
 
 A containerized, version-pinned build environment for the [Basilisk](https://hanspeterschaub.info/basilisk) astrodynamics simulation framework. The image captures the complete toolchain (OS, compilers, Python dependencies, and a fixed Basilisk commit), so GN&C simulations run in a consistent, version-controlled environment on any host that runs Docker.
 
@@ -46,8 +46,8 @@ This repository removes that variable. Every collaborator, CI runner, and review
 
 | Release | Basilisk | Purpose |
 |---|---|---|
-| **v2.0.0** (current) | v2.12.2 ([`dad700e`](https://github.com/AVSLab/basilisk/commit/dad700e8af0c0219c5cf0f46666f792c0e7af8a0)) | Current Basilisk, pinned dependencies, CI-tested scenarios |
-| [v1.0.0](https://github.com/abruan-aerospace/basilisk-docker/releases/tag/v1.0.0) | [`87cb4116`](https://github.com/AVSLab/basilisk/commit/87cb4116) | Exact environment used for the companion paper |
+| **v2.0.0** (current) | v2.12.2 ([`dad700e`](https://github.com/AVSLab/basilisk/commit/dad700e8af0c0219c5cf0f46666f792c0e7af8a0)) | Current Basilisk, pinned dependencies, CI-tested build |
+| [v1.0.0](https://github.com/abruan-aerospace/basilisk-docker/releases/tag/v1.0.0) | v2.10.2 ([`87cb411`](https://github.com/AVSLab/basilisk/commit/87cb4116e09694ddf6587f61a7f4196d2e720c43)) | Exact environment used for the companion paper |
 
 > **Reproducing the paper:** check out `v1.0.0`
 > (DOI [10.5281/zenodo.20132421](https://doi.org/10.5281/zenodo.20132421)).
@@ -110,7 +110,7 @@ cd examples
 python scenario_earth_orbit.py
 ```
 
-Each scenario writes a `.bin` file to its working directory. Open that file in Vizard for 3D visualization.
+Scenarios with Vizard support write a `.bin` file to a `_VizFiles/` folder next to the script. Open that file in Vizard for 3D visualization.
 
 > Scenarios that use planetary ephemerides need the `de430.bsp` SPICE kernel.
 > It is not distributed with this repository because of its size. Section 3 of
@@ -123,7 +123,7 @@ By default, the image installs the exact versions in `requirements.txt`, so ever
 To install Basilisk's own version ranges for the pinned commit instead:
 
 ```bash
-docker compose build --build-arg DEPS=ranges
+docker compose -f docker/docker-compose.yml build --build-arg DEPS=ranges
 ```
 
 Use this mode to test against newer compatible packages. Results may differ from the pinned environment.

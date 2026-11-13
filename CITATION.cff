@@ -1,15 +1,15 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite it as below."
+message: "If you use this software, please cite the paper below. To reference a specific software version, also cite the Zenodo DOI."
 type: software
 
 title: "Basilisk and Docker for Reproducible GN&C Simulation"
 abstract: >
   A Docker-based containerization workflow for the Basilisk astrodynamics
   simulation framework. Encapsulates the complete build environment,
-  dependencies, and simulation infrastructure within a portable container
-  image. Demonstrated through a progression of simulation scenarios of
-  increasing complexity, from standalone orbital dynamics scripts to
-  BSKSim-based attitude dynamics and control simulations.
+  version-pinned dependencies, and a fixed Basilisk revision within a
+  portable container image. Includes example scenarios of increasing
+  complexity, from module and messaging fundamentals to spacecraft orbital
+  dynamics in Earth and Sun-Earth environments.
 
 authors:
   - family-names: Gupta
@@ -34,7 +34,6 @@ keywords:
   - reproducibility
   - containerization
   - orbital mechanics
-  - attitude control
 
 preferred-citation:
   type: article
