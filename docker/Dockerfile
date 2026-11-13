@@ -35,7 +35,7 @@ RUN apt-get update && \
         python3-dev=3.14.3-0ubuntu2 \
         python3-venv=3.14.3-0ubuntu2 \
         python3-tk=3.14.3-0ubuntu2 \
-        libgtk2.0-0t64 \
+        libgtk2.0-0t64=2.24.33-10 \
         libzmq3-dev=4.3.5-1build3 \
     && rm -rf /var/lib/apt/lists/*
   
