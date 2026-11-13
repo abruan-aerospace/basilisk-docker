@@ -1,9 +1,11 @@
 # basilisk-docker
 
-[![Python](https://img.shields.io/badge/Python-3.14%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![CI Build](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/theinfinitelabs/basilisk-docker/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://www.repostatus.org/#active)
+
+[![Python](https://img.shields.io/badge/Python-3.14%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![GitHub release](https://img.shields.io/github/v/release/abruan-aerospace/HeylandCircle?include_prereleases&sort=semver)](https://github.com/abruan-aerospace/HeylandCircle/releases)
 
 [![arXiv](https://img.shields.io/badge/arXiv-2605.12443-b31b1b.svg)](https://arxiv.org/abs/2605.12443)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20132421.svg)](https://doi.org/10.5281/zenodo.20132421)
