@@ -19,9 +19,10 @@ authors:
 
 repository-code: "https://github.com/abruan-aerospace/basilisk-docker"
 license: MIT
+doi: "10.5281/zenodo.20132420"
 
-version: "1.0.0"
-date-released: "2026-05-11"
+version: "2.0.0"
+date-released: "2026-11-17"
 
 keywords:
   - Basilisk
@@ -41,7 +42,12 @@ references:
       - family-names: Gupta
         given-names: Anubhav
     year: 2026
-    note: "Submitted to arXiv, May 2026"
+    journal: "arXiv preprint"
+    doi: "10.48550/arXiv.2605.12443"
+    url: "https://arxiv.org/abs/2605.12443"
+    identifiers:
+      - type: other
+        value: "arXiv:2605.12443"
 
   - type: conference-paper
     title: "Basilisk and Docker for Streamlined GN&C Simulation"
@@ -52,4 +58,5 @@ references:
       name: "46th Rocky Mountain AAS GN&C Conference"
       location: "Breckenridge, CO, USA"
     year: 2024
+    month: 2
     doi: "10.5281/zenodo.15008785"
