@@ -5,9 +5,9 @@
 # Organization: Abruan Aerospace
 # License: MIT
 
-set -e
+set -euo pipefail
 
-# Resolve repository root
+# Resolve this script's directory
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo "Building Basilisk Docker container..."

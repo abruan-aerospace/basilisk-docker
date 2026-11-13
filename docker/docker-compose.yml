@@ -11,7 +11,7 @@ name: Basilisk_GNC
 services:
   bsk:
     container_name: basilisk_gnc
-    image: bsk_img
+    image: bsk_img:2.0.0
     build:
       context: ..
       dockerfile: docker/Dockerfile

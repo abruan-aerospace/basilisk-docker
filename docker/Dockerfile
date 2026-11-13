@@ -9,12 +9,13 @@ ARG UBUNTU_VERSION=26.04
 FROM ubuntu:${UBUNTU_VERSION}
 
 ARG BASILISK_TAG=v2.12.2
-ARG BASILISK_COMMIT=dad700e
+ARG BASILISK_COMMIT=dad700e8af0c0219c5cf0f46666f792c0e7af8a0
+ARG IMAGE_VERSION=2.0.0
 ARG DEPS=pinned
 
 LABEL org.opencontainers.image.title="Basilisk Docker"
 LABEL org.opencontainers.image.vendor="Abruan Aerospace"
-LABEL org.opencontainers.image.version="${BASILISK_TAG}"
+LABEL org.opencontainers.image.version="${IMAGE_VERSION}"
 LABEL basilisk.tag="${BASILISK_TAG}"
 LABEL basilisk.commit="${BASILISK_COMMIT}"
 LABEL basilisk.deps="${DEPS}"
@@ -34,7 +35,7 @@ RUN apt-get update && \
         python3-dev=3.14.3-0ubuntu2 \
         python3-venv=3.14.3-0ubuntu2 \
         python3-tk=3.14.3-0ubuntu2 \
-        libgtk2.0-0t64 \
+        libgtk2.0-0t64=2.24.33-10 \
         libzmq3-dev=4.3.5-1build3 \
     && rm -rf /var/lib/apt/lists/*
   
@@ -79,12 +80,11 @@ RUN python conanfile.py
 
 # Register Basilisk editable installation
 RUN python -m pip install \
+        --no-cache-dir \
         --no-build-isolation \
         --no-deps \
-        -e .
-
-# Validate installation
-RUN python -m pip check && \
+        -e . && \
+    python -m pip check && \
     python -c "import Basilisk; print('Basilisk import successful')" && \
     python -m pip show bsk
 
