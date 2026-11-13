@@ -1,11 +1,49 @@
 # RELEASE NOTES
 
-### Version 1.1.0 (Unreleased)
-- Added CI workflow with Dockerfile linting (hadolint) and shell script validation (shellcheck)
-- Added badges: CI status, license, project status, arXiv, Zenodo
-- Added Vizard orbit screenshot to README
-- Updated Dockerfile: replaced apt with apt-get, added --no-install-recommends, fixed label key convention
-- Updated README: restructured for clarity, separated software and paper citations, added conference workshop reference in Development History, removed repository structure tree
+### Version 2.0.0 (Nov 17, 2026)
+
+**Breaking changes**
+- Basilisk updated from commit `87cb4116` to release
+  [v2.12.2](https://github.com/AVSLab/basilisk/releases/tag/v2.12.2)
+  (`dad700e8af0c0219c5cf0f46666f792c0e7af8a0`).
+- Base image updated from Ubuntu 22.04 to Ubuntu 26.04 LTS.
+- Python updated from 3.10 to 3.14.
+- Python dependencies are now installed from a pinned `requirements.txt`
+  by default.
+
+> To reproduce the results in the companion paper, use
+> [v1.0.0](https://github.com/abruan-aerospace/basilisk-docker/releases/tag/v1.0.0).
+> Numerical results from v2.0.0 may differ from the published figures.
+
+**Added**
+- Pinned `requirements.txt` for a reproducible Python environment.
+- `DEPS` build argument: `pinned` (default) installs exact versions;
+  `ranges` installs Basilisk's own version ranges for the pinned commit.
+- Build-time check that `BASILISK_COMMIT` matches `BASILISK_TAG`.
+- Post-build validation: `pip check`, Basilisk import test, and
+  build-tool version checks.
+- OCI image labels recording the image version, Basilisk tag, Basilisk
+  commit, and dependency mode.
+- CI workflow: Dockerfile linting (hadolint), shell script linting
+  (ShellCheck), and <DESCRIBE_TESTS>.
+- README badges: CI status, release, license, project status, Basilisk
+  version, Python version, arXiv, software DOI, and workshop DOI.
+- Vizard visualization of the Earth-orbit scenario in the README.
+
+**Changed**
+- Dockerfile: system packages pinned to exact versions; `apt` replaced
+  with `apt-get` and `--no-install-recommends`; Python environment
+  isolated in a virtual environment at `/opt/venv`; OCI label keys
+  follow standard conventions.
+- README restructured: version and reproducibility table, mapping of
+  scenarios to paper sections, dependency and CI documentation,
+  separate software and paper citations, and conference workshop
+  reference in Development History.
+- Scenario scripts are unchanged from v1.0.0.
+
+**Removed**
+- Repository structure tree from the README.
+
 
 ### Version 1.0.0 (May 11, 2026)
 - Initial release of the Basilisk-Docker infrastructure.
