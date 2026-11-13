@@ -28,3 +28,30 @@ jobs:
       - name: Validate docker-compose
         working-directory: docker
         run: docker compose config
+
+
+  docker-smoke-test:
+    name: Docker Build & Smoke Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -f docker/Dockerfile \
+            --build-arg BASILISK_TAG=v2.12.2 \
+            --build-arg BASILISK_COMMIT=dad700e \
+            --build-arg DEPS=pinned \
+            -t basilisk-smoke-test .
+
+      - name: Run Basilisk smoke test
+        run: |
+          docker run --rm \
+            -e MPLBACKEND=Agg \
+            basilisk-smoke-test \
+            python /app/basilisk/examples/scenarioBasicOrbit.py
