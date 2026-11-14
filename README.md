@@ -2,17 +2,17 @@
 
 **A reproducible, version-pinned build environment for Basilisk GN&C simulation.**
 
-[![CI Build](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml/badge.svg)](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml)
-[![GitHub release](https://img.shields.io/github/v/release/abruan-aerospace/basilisk-docker?include_prereleases&sort=semver)](https://github.com/abruan-aerospace/basilisk-docker/releases)
+[![CI](https://img.shields.io/github/actions/workflow/status/abruan-aerospace/basilisk-docker/ci.yml?branch=main&label=CI&logo=githubactions&logoColor=white)](https://github.com/abruan-aerospace/basilisk-docker/actions/workflows/ci.yml)
+[![GitHub release](https://img.shields.io/github/v/release/abruan-aerospace/basilisk-docker?sort=semver&logo=github)](https://github.com/abruan-aerospace/basilisk-docker/releases/latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)](https://www.repostatus.org/#active)
 
 [![Basilisk](https://img.shields.io/badge/Basilisk-v2.12.2-orange)](https://github.com/AVSLab/basilisk/releases/tag/v2.12.2)
 [![Python](https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 
-[![arXiv](https://img.shields.io/badge/arXiv-2605.12443-b31b1b.svg)](https://arxiv.org/abs/2605.12443)
-[![Software](https://img.shields.io/badge/Software-10.5281%2Fzenodo.20132420-blue)](https://doi.org/10.5281/zenodo.20132420)
-[![Workshop](https://img.shields.io/badge/Workshop-10.5281%2Fzenodo.15008785-blue)](https://doi.org/10.5281/zenodo.15008785)
+[![arXiv](https://img.shields.io/badge/arXiv-2605.12443-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2605.12443)
+[![Software](https://img.shields.io/badge/Software-10.5281%2Fzenodo.20132420-blue?logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.20132420)
+[![Workshop](https://img.shields.io/badge/Workshop-10.5281%2Fzenodo.15008785-blue?logo=zenodo&logoColor=white)](https://doi.org/10.5281/zenodo.15008785)
 
 A containerized, version-pinned build environment for the [Basilisk](https://hanspeterschaub.info/basilisk) astrodynamics simulation framework. The image captures the complete toolchain (OS, compilers, Python dependencies, and a fixed Basilisk commit), so GN&C simulations run in a consistent, version-controlled environment on any host that runs Docker.
 
