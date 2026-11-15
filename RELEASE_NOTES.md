@@ -32,6 +32,7 @@
 - Vizard visualization of the Earth-orbit scenario in the README.
 
 **Changed**
+- Base image pinned by digest (ubuntu:26.04@sha256:065aa8626841f16057b78b027b464cd59c4fac36c204c72dcbf48d66f5fa8a96)”
 - Dockerfile: system packages pinned to exact versions; `apt` replaced
   with `apt-get` and `--no-install-recommends`; Python environment
   isolated in a virtual environment at `/opt/venv`; OCI label keys
