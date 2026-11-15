@@ -1,6 +1,6 @@
 # RELEASE NOTES
 
-### Version 2.0.0 (Nov 17, 2026)
+### Version 2.0.0 (Nov 16, 2026)
 
 **Breaking changes**
 - Basilisk updated from release v2.10.2 (`87cb4116`) to release
