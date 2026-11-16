@@ -1,6 +1,6 @@
 # RELEASE NOTES
 
-### Version 2.0.0 (Nov 17, 2026)
+### Version 2.0.0 (Nov 16, 2026)
 
 **Breaking changes**
 - Basilisk updated from release v2.10.2 (`87cb4116`) to release
@@ -32,6 +32,7 @@
 - Vizard visualization of the Earth-orbit scenario in the README.
 
 **Changed**
+- Base image pinned by digest (ubuntu:26.04@sha256:065aa8626841f16057b78b027b464cd59c4fac36c204c72dcbf48d66f5fa8a96)”
 - Dockerfile: system packages pinned to exact versions; `apt` replaced
   with `apt-get` and `--no-install-recommends`; Python environment
   isolated in a virtual environment at `/opt/venv`; OCI label keys
